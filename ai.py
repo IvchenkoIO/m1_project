@@ -5,10 +5,11 @@ def req():
     model_engine = "text-davinci-003"
     prompt = "describe the ip"
 
-    # задаем макс кол-во слов
+    
+    # set max number of words
     max_tokens = 128
 
-    # генерируем ответ
+    # generate a response
     completion = openai.Completion.create(
         engine=model_engine,
         prompt=prompt,
@@ -19,7 +20,7 @@ def req():
         presence_penalty=0
     )
     print(completion.choices[0].text)
-    # выводим ответ
+    # display the answer
     return completion.choices[0].text
 
 req()

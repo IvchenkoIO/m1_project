@@ -8,10 +8,10 @@ import hello.questionsFileProgram as qa
 
 def index(request):
     """
-    Функция отображения для домашней страницы сайта.
+    Display function for the home page of the site.
     """
 
-    # Генерация "количеств" некоторых главных объектов
+    # Generation of "quantities" of some main objects
     num_questions=Question.objects.all().count()
     num_chapters=Chapter.objects.all().count()
     # Number of visits to this view, as counted in the session variable.
@@ -25,36 +25,35 @@ def index(request):
         context={'num_questions': num_questions, 'num_chapters': num_chapters,
                  'num_visits': num_visits},  # num_visits appended
     )
-    # Отрисовка HTML-шаблона index.html с данными внутри
-    # переменной контекста context
+    # Render the HTML template index.html with data inside context variable
 
 class ChapterListView(generic.ListView):
     model = Chapter
     paginate_by = 10
-    context_object_name = 'chapter_list'  # ваше собственное имя переменной контекста в шаблоне
+    context_object_name = 'chapter_list'  # your own context variable name in the template
     def get_queryset(self):
-        return Chapter.objects.filter(description__icontains="") # Получить 5 книг, содержащих
-    template_name = 'catalog/chapter_list.html'  # Определение имени вашего шаблона и его расположения
+        return Chapter.objects.filter(description__icontains="") # Get 5 books containing
+    template_name = 'catalog/chapter_list.html'  # Determine your template name and location
 
     def get_context_data(self, **kwargs):
-        # В первую очередь получаем базовую реализацию контекста
+        # First of all, we get the basic implementation of the context
         context = super(ChapterListView, self).get_context_data(**kwargs)
-        # Добавляем новую переменную к контексту и инициализируем её некоторым значением
+        # Add a new variable to the context and initialize it with some value
         context['some_data'] = 'This is just some data'
         return context
 
 class QuestionListView(generic.ListView):
     model = Question
     paginate_by = 10
-    context_object_name = 'question_list'  # ваше собственное имя переменной контекста в шаблоне
+    context_object_name = 'question_list'  # your own context variable name in the template
     def get_queryset(self):
-        return Question.objects.filter(title__icontains="") # Получить 5 книг, содержащих
-    template_name = 'catalog/question_list.html'  # Определение имени вашего шаблона и его расположения
+        return Question.objects.filter(title__icontains="") # Get 5 books containing
+    template_name = 'catalog/question_list.html'  # Determine your template name and location
 
     def get_context_data(self, **kwargs):
-        # В первую очередь получаем базовую реализацию контекста
+        # First of all, we get the basic implementation of the context
         context = super(QuestionListView, self).get_context_data(**kwargs)
-        # Добавляем новую переменную к контексту и инициализируем её некоторым значением
+        # Add a new variable to the context and initialize it with some value
         context['some_data'] = 'This is just some data'
         return context
 
