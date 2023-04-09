@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Question List</h1>
+
+    {% if question_list %}
+    <ul>
+
+      {% for question in question_list %}
+      <li>
+        <a href="{{ question.get_absolute_url }}">{{ question.title }}</a>
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no questions in the db.</p>
+    {% endif %}
+{% endblock %} 

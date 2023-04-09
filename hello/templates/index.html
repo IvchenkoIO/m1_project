@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>EasyLearning</h1>
+
+  <p>Welcome to <em>EasyLearning</em>, a very basic website developed to provide something....</p>
+
+<h2>Dynamic content</h2>
+
+<p>The db has the following record counts:</p>
+<ul>
+<li><strong>Questions:</strong> {{ num_questions }}</li>
+<li><strong>Chapters:</strong> {{ num_chapters }}</li>
+</ul>
+
+<p>You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+
+{% endblock %}

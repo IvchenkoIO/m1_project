@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Book List</h1>
+
+    {% if chapter_list %}
+    <ul>
+
+      {% for chapter in chapter_list %}
+      <li>
+        <a href="{{ chapter.get_absolute_url }}">{{ chapter.description }}</a>
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no books in the library.</p>
+    {% endif %}
+{% endblock %} 
