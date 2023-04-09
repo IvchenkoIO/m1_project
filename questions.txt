@@ -1,5 +1,0 @@
-$!Q1$ First question $!EQ$
-$!Q2$ Second question $!EQ$
-$!Q3$ Third question $!EQ$
-$!Q4$ Fourth question $!EQ$
-$!Q5$ Fifth question $!EQ$
