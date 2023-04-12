@@ -8,6 +8,7 @@ import os
 from easylearn import settings
 from .models import Question,Chapter,File
 #import hello.questionsFileProgram as qa
+import hello.test as cm
 
 def index(request):
     """
@@ -76,10 +77,11 @@ def ChapterQuizView(request, description):
         for i in range (0,10):
             rand=random.randint(0,count)
             qlist.insert(i,questions[rand])
+    cm.make_conv(qlist)
     context = {
         'question_list': qlist
     }
-    return render(request, 'catalog/question_list_chapter.html',context)
+    return render(request, 'catalog/quiz.html',context)
 ##To complete
 def QuestionDetailView(request, title):
         # Retrieve the Chapter object with the matching description field value
@@ -97,6 +99,7 @@ def QuestionDetailView(request, title):
 
 def FileDownloader(request,file_name):
     file_path = os.path.join(settings.MEDIA_ROOT, file_name)
+    print(settings.MEDIA_URL)
     if os.path.exists(file_path):
         with open(file_path, 'rb') as file:
             response = HttpResponse(file.read(), content_type='application/octet-stream')
