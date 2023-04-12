@@ -6,18 +6,13 @@ document.addEventListener("DOMContentLoaded", function() {
     const messageInput = document.getElementById("message-input");
 
     
-    const addConversationButton = document.getElementById("add-conversation-button");// Sélectionnez le bouton "Ajouter une conversation" et attachez un gestionnaire d'événements "click"
-    addConversationButton.addEventListener("click", function () {
-        
-        const conversationName = `Conversation ${Object.keys(conversations).length + 1}`;// Vous pouvez personnaliser le nom de la conversation, par exemple en utilisant un champ de saisie ou en générant un nom unique   
-        addConversation(conversationName);
-    });
+    
 
 
     // Exemple de données pour les conversations
     const conversations = {
 conversation1: [
-    { author: "Teacher", content: "What is the square root of 9?" }
+    { author: "Teacher", content: "What is the square root of 16?" }
 ],
 conversation2: [
     { author: "Teacher", content: "What is the capital of France?" }
@@ -27,27 +22,7 @@ conversation3: [
 ]
 };
 
-    function addConversation(conversationName) {
-    // Créer un nouvel identifiant de conversation unique
-    const newConversationId = `conversation${Object.keys(conversations).length + 1}`;
-
-    // Créer un nouvel élément de liste (li) pour la nouvelle conversation
-    const newConversationItem = document.createElement("li");
-    newConversationItem.dataset.conversationId = newConversationId;
-    newConversationItem.textContent = conversationName;
-
-    // Ajouter le nouvel élément de liste à la liste des conversations
-    const conversationsList = document.getElementById("conversations");
-    conversationsList.appendChild(newConversationItem);
-
-    // Mettre à jour les données des conversations
-    conversations[newConversationId] = [];
-
-    // Attacher l'événement de clic au nouvel élément de liste
-    newConversationItem.addEventListener("click", function () {
-        displayConversation(newConversationId);
-    });
-}
+   
 
 async function fetchGptResponse(conversation) {
     // Convert the conversation history into a message string
