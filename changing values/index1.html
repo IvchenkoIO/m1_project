@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Système de messagerie</title>
+    <script src="java.js"></script>
+    <link rel="stylesheet" href="test3.css">
+</head>
+<body>
+    <div id="menu">
+        <h2>Conversations</h2>
+        <ul id="conversations">
+
+            {% for item in my_list %}
+                <li data-conversation-id="conversation{{ loop.index }}">{{ item }}</li>
+            {% endfor %}
+            </ul>
+        <button id="add-conversation-button">Ajouter une conversation</button>
+        
+    </div>
+
+    <div id="messages">
+        <!-- Les messages de la conversation seront affichés ici -->
+    </div>
+
+    <form id="message-form">
+        <input type="text" id="message-input" placeholder="Tapez votre message ici" required>
+        <button type="submit">Envoyer</button>
+    </form>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const listItems = document.querySelectorAll('li[data-conversation-id]');
+  
+      listItems.forEach((item) => {
+        console.log('data-conversation-id:', item.getAttribute('data-conversation-id'));
+      });
+    });
+  </script>
+  
+</html>
