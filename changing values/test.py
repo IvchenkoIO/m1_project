@@ -1,21 +1,10 @@
 import re
 
-from flask import Flask, render_template
-
-app = Flask(__name__)
-
-@app.route('/')
-def index():
-    my_list = ['question 1', 'question2', 'question3', 'question4']
-    return render_template('index1.html', my_list=my_list)
-
-if __name__ == '__main__':
-    app.run(debug=True)
 
 
 # CONVERSATION A IMPORTER ICI !!!!!!!!!!!!
 custom_conversations = [
-    {"author": "Teacher", "content": "What is the square root of 9?"},
+    {"author": "Teacher", "content": "What is the square root of 16?"},
     {"author": "Teacher", "content": "What is the capital of France?"},
     {"author": "Teacher", "content": "What is the largest mammal on Earth?"},
 ]
