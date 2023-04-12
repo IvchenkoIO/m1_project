@@ -1,5 +1,29 @@
-$!Q1$ First question $!EQ$
-$!Q2$ Second question $!EQ$
-$!Q3$ Third question $!EQ$
-$!Q4$ Fourth question $!EQ$
-$!Q5$ Fifth question $!EQ$
+$!NCO$ Mathematics $!ENCO$
+
+$!DCO$ Mathematics Course $!EDCO$
+
+
+$!NCH$ Linear Functions $!ENCH$
+
+$!DCH$ Chapter about Linear Functions $!EDCH$
+
+
+$!Q1$ Solve : 3x -2 = 0 $!EQ$
+$!Q2$ Solve : -5x - 0.5 = 10 $!EQ$
+$!Q3$ Solve : 42x - 72 = 100 $!EQ$
+$!Q4$ Solve : 2x = 100 $!EQ$
+
+
+
+
+$!NCH$ Geometry $!ENCH$
+
+$!DCH$ Chapter about Geometry $!EDCH$
+
+
+$!Q1$ Give the definition of a square $!EQ$
+$!Q2$ Give the definition of a triangle $!EQ$
+$!Q3$ Calculate the length of the hypotenuse of a right triangle whose legs measure 6 cm and 8 cm.  $!EQ$
+
+
+
