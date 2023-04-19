@@ -13,10 +13,10 @@ document.addEventListener("DOMContentLoaded", function() {
     // Exemple de données pour les conversations
     const conversations = {
 conversation1: [
-    { role: "Teacher", content: "What is the square root of 16?" }
+    { role: "Teacher", content: "Solve : 4x -2 = 0" }
 ],
 conversation2: [
-    { role: "Teacher", content: "What is the capital of France?" }
+    { role: "Teacher", content: "Give the definition of a square" }
 ],
 conversation3: [
     { role: "Teacher", content: "What is the largest mammal on Earth?" }
@@ -29,6 +29,12 @@ async function checkResponse(conversationId, gptResponse) {
         const conversationItem = document.querySelector(`#conversations li[data-conversation-id='${conversationId}']`);
         if (conversationItem) {
             conversationItem.style.backgroundColor = "red";
+        }
+    }
+    else if (gptResponse.includes("partially") || gptResponse.includes("Partially")) {
+        const conversationItem = document.querySelector(`#conversations li[data-conversation-id='${conversationId}']`);
+        if (conversationItem) {
+            conversationItem.style.backgroundColor = "yellow";
         }
     }
     else if (gptResponse.includes("correct") || gptResponse.includes("right") || gptResponse.includes("Correct") || gptResponse.includes("Right")) {
