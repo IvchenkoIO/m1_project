@@ -11,14 +11,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     // Exemple de données pour les conversations
-    const conversations = {
+
+        const conversations = {
 conversation1: [
-    { role: "Teacher", content: "Solve : 4x -2 = 0" }
+    { role: "Teacher", content: "What is the square root of 16?" }
 ],
 conversation2: [
-    { role: "Teacher", content: "Give the definition of a square" }
+    { role: "Teacher", content: "Solve : 3x -2 = 0 " }
 ],
 conversation3: [
+    { role: "Teacher", content: "Solve : -5x - 5 = 10" }
+],
+conversation4: [
+    { role: "Teacher", content: "Solve : 42x - 72 = 100" }
+],
+conversation5: [
+    { role: "Teacher", content: "What is a database ?" }
+],
+conversation6: [
     { role: "Teacher", content: "What is the largest mammal on Earth?" }
 ]
 };
@@ -31,13 +41,13 @@ async function checkResponse(conversationId, gptResponse) {
             conversationItem.style.backgroundColor = "red";
         }
     }
-    else if (gptResponse.includes("partially") || gptResponse.includes("Partially")) {
+    else if (gptResponse.includes("partially") || gptResponse.includes("Partially") || gptResponse.includes("not quite right")){
         const conversationItem = document.querySelector(`#conversations li[data-conversation-id='${conversationId}']`);
         if (conversationItem) {
             conversationItem.style.backgroundColor = "yellow";
         }
     }
-    else if (gptResponse.includes("correct") || gptResponse.includes("right") || gptResponse.includes("Correct") || gptResponse.includes("Right")) {
+    else if ( gptResponse.includes("CORRECT") ) {   // gptResponse.includes("correct") || gptResponse.includes("Correct") || gptResponse.includes("Right")|| gptResponse.includes("right")
         const conversationItem = document.querySelector(`#conversations li[data-conversation-id='${conversationId}']`);
         if (conversationItem) {
             conversationItem.style.backgroundColor = "green";
@@ -64,7 +74,7 @@ async function fetchGptResponse(conversation) {
             max_tokens: 400, // Set the desired response length
             n: 1,
             stop: ["\nyou:", "\nteacher:"], // Stop generating when the next user or assistant message starts
-            temperature: 0.4,
+            temperature: 0.1,
             top_p: 0.7,
         }),
     });
@@ -111,6 +121,8 @@ function displayConversation(conversationId) {
     conversationItems.forEach(function(item) {
         item.addEventListener("click", function() {
             // Remove the following lines as we don't want to deselect the previous item or replace the messages.
+            // document.querySelector("#conversations li.selected").classList.remove("selected");
+            // item.classList.add("selected");
             // Désélectionnez l'élément actif précédent
             document.querySelector("#conversations li.selected").classList.remove("selected");
 
@@ -127,8 +139,12 @@ function displayConversation(conversationId) {
         const currentConversationId = document.querySelector("#conversations li.selected").dataset.conversationId;
         const newMessage = {
             role: "system",
-            content: `You are a teacher who askes a question to a student. Say if the student is right, wrong or partially correct and give him a hint if he is wrong. Do not give him the answer before. After 3 tries, give him the answer.If the student ask for help, give him a hint. If he wants explanation, give him an explanation. `,
-       };
+            content: `
+            You are a teacher who asks a question to a student. It is crucial that you DO NOT provide the direct answer to the question under any circumstances. Instead, guide the student towards the answer using only hints, suggestions, or explanations. If he give the right answer, say "YOU ARE CORRECT !" and stop talking.            
+            If the answer lacks informations, say "That's partially correct. Try again." and continue the conversation.
+            `,
+       
+        };
     
         conversations[currentConversationId].push(newMessage);
     
