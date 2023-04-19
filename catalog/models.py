@@ -4,19 +4,6 @@ import uuid
 from django.core.files.storage import FileSystemStorage
 # Create your models here.
 
-class Course(models.Model):
-    title=models.TextField(max_length=500,help_text="Write the title of the course",default='')
-    description=models.TextField(max_length=100,default='',help_text='Short description of the course')
-    def __str__(self):
-        """
-        String for representing the Model object.
-        """
-        return self.description
-    def get_absolute_url(self):
-        """
-        Returns the url to access a particular question instance.
-        """
-        return reverse('chapter-detail', args=[str(self.description)])
 
 
 class Chapter(models.Model):

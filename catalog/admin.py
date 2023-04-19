@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.urls import reverse
 from django.utils.html import format_html
 
-from .models import Question,Chapter,File,Course
+from .models import Question,Chapter,File
 
 # Register the admin class with the associated model
 class MyModelAdmin(admin.ModelAdmin):
