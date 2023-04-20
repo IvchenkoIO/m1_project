@@ -1,7 +1,0 @@
-django.*
-os
-pathlib.*
-re
-random
-unicodedata
-urllib
