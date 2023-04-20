@@ -1,9 +1,0 @@
-Performing system checks...
-
- address
-
-An IP address is a numerical label assigned to each device connected to a computer network that uses the Internet Protocol for communication. An IP address serves two main functions: host or network interface identification and location addressing.
-March 22, 2023 - 16:24:01
-Django version 4.1.7, using settings 'metanit.settings'
-Starting development server at http://0.0.0.0:8000/
-Quit the server with CTRL-BREAK.
