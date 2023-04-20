@@ -14,9 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from hello import views
+from elearn import views
 from django.contrib import admin
-from django.views.generic import RedirectView
+# from django.views.generic import RedirectView
 from django.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
@@ -28,16 +28,7 @@ urlpatterns += [
     path('admin/', admin.site.urls),
 ]
 urlpatterns += [
-     path('hello/', include('hello.urls')),
-]
-urlpatterns += [
-     path('files/<str:file_name>/', views.FileDownloader,name='file_dowloader'),
-]
-urlpatterns += [
-    path('', views.index, name='index'),
+     path('elearn/', include('elearn.urls')),
 ]
 
-urlpatterns += [
-    path('accounts/', include('django.contrib.auth.urls')),
-]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

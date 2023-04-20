@@ -37,18 +37,27 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hello'
+    'elearn'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    #'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+#'csp.middleware.CSPMiddleware',
 ]
+'''
+CSP_DIRECTIVES = {
+    'default-src': ("'self'",),
+    'object-src': ("'self'",),
+'script-src': ("'self'",),
+    # Define other CSP directives and their values as needed
+}
+'''
 
 ROOT_URLCONF = 'easylearn.urls'
 
@@ -127,14 +136,14 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 STATICFILES_DIRS = [
-   os.path.join(BASE_DIR,'hello','static'),
+   os.path.join(BASE_DIR,'elearn','static'),
 ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
-MEDIA_URL = r'hello\files/'
+MEDIA_URL = r'elearn\files/'
 MEDIA_ROOT = os.path.join(BASE_DIR , MEDIA_URL)
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-LOGIN_REDIRECT_URL = '/'
+# LOGIN_REDIRECT_URL = '/'
