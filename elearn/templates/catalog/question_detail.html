@@ -1,0 +1,9 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Title: {{ question.title }}</h1>
+  <h3>Question: {{ question.question }}</h1>
+  <p><strong>Chapters:</strong> {% for chapter in question.chapters.all %}
+      {{ chapter }},
+    {% endfor %}</a></p> <!-- author detail link not yet defined -->
+{% endblock %}

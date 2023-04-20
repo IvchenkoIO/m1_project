@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Système de messagerie</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/quiz_styles.css' %}">
+</head>
+<body>
+
+    <header>
+    <div class="header-container">
+      <div class="hamburger-icon" >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="site-name">
+        <h1>Easy Learning</h1>
+      </div>
+      <a href="{% url 'index' %}" style="background-color: white; color: #333;padding: 5px 10px;border-radius: 5px; text-decoration: none;">Home</a>
+    </div>
+
+
+    <nav class="menu-list">
+
+      <div class="header-container1">
+        <div class="close-icon">
+          <span></span>
+          <span></span>
+        </div>
+        <div class="site-name1">
+          <h1>Easy Learning</h1>
+        </div>
+      </div>
+
+        {% block content %}
+        <ul>
+            {% if chapter_list %}
+                {% for chapter in chapter_list %}
+                    <li><a href="{{ chapter.get_absolute_url }}">{{ chapter.description }}</a></li>
+                {% endfor %}
+            {% else %}
+                <p>There are no chapters in the library.</p>
+            {% endif %}
+        </ul>
+        {% endblock %}
+
+
+
+
+    </nav>
+  </header>
+
+
+
+
+    <div id="menu">
+        <h2>Conversations</h2>
+        <ul id="conversations">
+				{% for item in question_list %}
+               		<li data-conversation-id="conversation{{ forloop.counter }}">{{ item }}</li>
+            	{% endfor %}
+            
+        </ul>
+        
+    </div>
+
+    <div id="messages">
+        <!-- Les messages de la conversation seront affichés ici -->
+    </div>
+
+    <form id="message-form">
+        <input type="text" id="message-input" placeholder="Tapez votre message ici" required>
+        <button type="submit">Envoyer</button>
+    </form>
+
+    <script type="text/javascript" src="{% static 'js/java.js' %}"></script>
+</body>
+
+</html>

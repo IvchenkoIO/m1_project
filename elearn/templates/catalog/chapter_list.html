@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Chapter List</h1>
+
+    {% if chapter_list %}
+    <div class="list">
+    <ul>
+
+      {% for chapter in chapter_list %}
+      <li>
+        <a href="{{ chapter.get_absolute_url }}">{{ chapter.description }}</a>
+      </li>
+      {% endfor %}
+
+    </ul>
+    </div>
+    {% else %}
+      <p>There are no chapters in the library.</p>
+    {% endif %}
+{% endblock %} 

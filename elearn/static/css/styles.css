@@ -1,0 +1,159 @@
+* {
+box-sizing: border-box;
+}
+
+
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+background: linear-gradient(to left, rgba(255,255,255,0.7), rgba(255,255,255,1)), url('/static/image/essaie.jpg') no-repeat;
+background-size: 300px 100%;
+background-position: right top;
+background-attachment: fixed;
+}
+
+header {
+position: fixed;
+background-color: #333;
+color: white;
+width: 100%;
+height: 50px;
+display: flex;
+align-items: center;
+}
+
+.header-container {
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-left: 5px;
+margin-right: 5px;
+width: 100%;
+}
+
+.site-name {
+display: flex;
+align-items: center;
+justify-content: center;
+flex-grow: 1;
+}
+
+.sidebar-nav {
+position: fixed;
+border-top: solid;
+top: 34px;
+left: 0;
+width: 180px;
+height: 100%;
+min-height: 500px;
+background-color: #333;
+color: #fff;
+padding: 0;
+list-style: none;
+}
+
+.sidebar-nav li {
+padding:10px;
+}
+
+.sidebar-nav li a {
+display: block;
+padding: 5px 15px;
+text-decoration: none;
+color: white;
+border-radius: 3px;
+}
+
+.sidebar-nav li a:hover {
+color:#333;
+background-color: white;
+}
+
+
+.row {
+display: flex;
+flex-wrap: wrap; /* Allow content to wrap to the next line when needed */
+}
+
+.col-sm-10 {
+margin: 0; /* Remove top and bottom margin */
+padding-top: 50px;
+padding-left: 190px; /* Add some padding to the left of the content */
+}
+.col-sm-10 {
+margin-top: 20px;
+margin-bottom: 20px;
+}
+
+.pagination {
+margin-top: 20px;
+margin-bottom: 20px;
+}
+
+.pagination .page-links {
+display: inline-block;
+}
+
+.pagination .page-links a {
+display: inline-block;
+padding: 5px 10px;
+margin-right: 5px;
+text-decoration: none;
+color: #333;
+border: 1px solid #ccc;
+border-radius: 3px;
+}
+
+.pagination .page-links a:hover {
+background-color: #e7e7e7;
+}
+
+
+.list{
+position:relative;
+}
+
+.list ul li{
+position:relative;
+left:0;
+list-style: none;
+margin: 4px 0;
+border-left: 2px solid #87ceeb;
+transition: 0.5s;
+cursor: pointer;
+}
+
+.list ul li::before{
+content:'';
+position: absolute;
+width: 100%;
+min-width: 200px;
+height: 100%;
+background: #87ceeb;
+transform: scaleX(0);
+transition: 0.5s;
+}
+
+.list ul li:hover::before{
+transform: scaleX(1);
+}
+
+.list ul li:hover{
+left:10px;
+}
+
+.list ul li a {
+position:relative;
+padding: 8px;
+display: inline-block;
+transition: 0.2s;
+z-index= 1;
+text-decoration: none;
+color: #333;
+}
+
+
+.list ul li a:hover {
+color: #333;
+}
